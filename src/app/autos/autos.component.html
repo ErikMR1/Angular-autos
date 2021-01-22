@@ -1,0 +1,19 @@
+<div class="main-container">
+  <div class="autos-container" [formGroup]="formAuto">
+    <mat-form-field>
+      <mat-label>Marca</mat-label>
+      <input matInput placeholder="Ex. Chevrolet" formControlName="brand">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Nombre</mat-label>
+      <input matInput placeholder="Ex. Nissan " formControlName="name">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Modelo</mat-label>
+      <input matInput placeholder="Ex. GT-R" formControlName="model">
+    </mat-form-field>
+    <button mat-raised-button color="primary" [disabled]="formAuto.invalid" (click)="saveClick()">
+      Guardar
+    </button>
+  </div>
+</div>
