@@ -1,6 +1,6 @@
 export class Auto{
-  _id: string;
-  brand: string;
-  name: string;
-  model: string;
+  _id: string | undefined;
+  brand: string | undefined;
+  name: string | undefined;
+  model: string | undefined;
 }
