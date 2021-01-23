@@ -11,8 +11,12 @@ import { AutosService } from '../services/autos.service';
 })
 export class AutosComponent implements OnInit {
   formAuto:FormGroup;
-  id:string | undefined;
-  constructor(private formBuilder:FormBuilder, private autos:AutosService,private route:ActivatedRoute,private router:Router){
+  id:string="";
+  autosService: any;
+  constructor(private formBuilder:FormBuilder,
+    private autos:AutosService,
+    private route:ActivatedRoute,
+    private router:Router){
     this.formAuto=this.formBuilder.group({
       brand:['',[Validators.required,Validators.maxLength(20),Validators.pattern('[a-zA-Z 0-9]*')]],
       name:['',[Validators.required,Validators.maxLength(20),Validators.pattern('[a-zA-Z 0-9]*')]],
@@ -22,11 +26,10 @@ export class AutosComponent implements OnInit {
       if(parameters.id){
         this.id=parameters.id;
 
-        this.autos.getSingleAuto(parameters.id).subscribe(res =>{
+        this.autos.getSingleAuto(parameters.id).subscribe(res=>{
           this.formAuto.get('brand')?.setValue(res.brand);
           this.formAuto.get('name')?.setValue(res.name);
           this.formAuto.get('brand')?.setValue(res.model);
-
         });
       }
     });

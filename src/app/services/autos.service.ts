@@ -10,7 +10,7 @@ export class AutosService {
 
   constructor(private http:HttpClient){}
 getSingleAuto(id:string){
-  return this.http.get('https://super-rest.herokuapp.com/test/erik/' +id);
+  return this.http.get<[Auto]>('https://super-rest.herokuapp.com/test/erik/' +id);
 }
   getAutos():Observable<[Auto]>{
 return this.http.get<[Auto]>('https://super-rest.herokuapp.com/test/erik/');
